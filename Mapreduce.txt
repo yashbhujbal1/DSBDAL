@@ -1,0 +1,18 @@
+Create a text file in your local machine and write some text into it.
+$ nano data.txt
+
+Check the text written in the data.txt file.
+$ cat data.txt
+
+Create a directory in HDFS, where to kept text file.
+$ hdfs dfs -mkdir /test
+Upload the data.txt file on HDFS in the specific directory.
+$ hdfs dfs -put /home/codegyani/data.txt /test
+
+Create the jar file of this program and name it countworddemo.jar.
+Run the jar file
+hadoop jar /home/codegyani/wordcountdemo.jar com.javatpoint.WC_Runner /test/data.txt /r_output
+The output is stored in /r_output/part-00000
+
+Now execute the command to see the output.
+hdfs dfs -cat /r_output/part-00000
